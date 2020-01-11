@@ -1,10 +1,26 @@
-import React from 'react'
-import Weather2 from './Weather2'
+import React, { useState, useEffect } from 'react'
+import Weather from './Weather'
+import axios from 'axios'
 
 const Country = (country) => {
+
+    const [ weather, setWeather ] = useState(null)
     const languages = () => country.languages.map((language, index) =>
         <li key={index}> {language.name} </li>
         )
+
+    useEffect(() => {
+        if(country.capital.length > 0) {
+        axios
+          .get(`Weather API goes here ${country.capital}`)
+          .then(response => {
+            console.log(response.data)
+            if(response.data.current !== undefined) {
+                setWeather(response.data)
+            }
+          })
+      } 
+    }, [country.capital])
 
 return(
 <div>
@@ -16,7 +32,7 @@ return(
 <img
 style={{width: 150, height: 100}}
 src={country.flag} alt={`Flag of ${country.name}`} />
-<Weather2 capital={country.capital} />
+<Weather weather={weather} />
 </div>
 )
 }

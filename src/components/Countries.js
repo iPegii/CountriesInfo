@@ -2,14 +2,13 @@ import React from 'react'
 import Country from './Country'
 
 const Countries = (countries) => {
-    
+
     const filteredCountries = countries.data.filter(country => country.name.toUpperCase().includes(countries.filter.toUpperCase()) === true)
 
     const tooMuchCountries = () => {
         return(
     <p> Too many matches, specify the country </p>
-    )
-    }
+    )}
 
     const simpleCountry = () => filteredCountries.map((country, indeksi) =>
     <p key={indeksi}>
@@ -27,8 +26,8 @@ const Countries = (countries) => {
     languages={theCountry.languages}
     flag={theCountry.flag}
     />
-    )
-    }
+    )}
+
     if(filteredCountries.length > 10) {
         return(
         tooMuchCountries()

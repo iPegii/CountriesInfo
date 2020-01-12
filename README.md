@@ -1,4 +1,4 @@
-CountriesInfo fetches and displays info of countries with API, and by adding Weatherstack API the app will also display temperature and windspeed.
+CountriesInfo fetches and displays basic information of a country with API, and by adding Weatherstack API the app will also display weather information such as temperature and windspeed.
 
 
 Project done as part of Fullstack course in university
